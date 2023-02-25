@@ -1,0 +1,70 @@
+/* Google Fonts Import */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+
+/* Setting up re-usable variables */
+
+:root {
+  --background-color: #252839;
+  --highlight-color: #383d52;
+  --fill-color: #01fe87;
+  --shadow-glow-color: #01fef1;
+}
+
+/* Reset Default Properties */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Body Properties */
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--background-color);
+}
+
+/* Base Text */
+
+h1 {
+  position: relative;
+  font-size: 12vw;
+  color: var(--background-color);
+  -webkit-text-stroke: 0.4vw var(--highlight-color);
+  text-transform: uppercase;
+  
+}
+
+/* Fill Mode */
+
+h1::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    color: var(--fill-color);
+    -webkit-text-stroke: 0vw var(--highlight-color);
+    border-right: 3px solid var(--fill-color);
+    text-shadow: 0px 0px 20px var(--shadow-glow-color);
+    /* text-shadow : x-offset y-offset blur color */
+    overflow: hidden;
+    animation: loading-animation 5s linear infinite;
+}
+
+@keyframes loading-animation {
+    0%, 20%, 100% {
+        width: 0;
+    }
+    60%, 80% {
+        width: 100%;
+    }
+}
